@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App-header {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.App-header h1 {
+  color: #726F6F;
+  font-size: 8em;
+  font-weight: bold;
+  margin: 0 20px;
+}
+
+.App-header p {
+  color: #FF9999;
+  font-size: 8em;
+  font-weight: bold;
+  margin: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #F4D4D4;
+  font-family: 'Poppins', sans-serif;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.5em;
+  color: #333;
+  line-height: 60px;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  transition: transform 0.2s;
+  text-decoration: none;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
+.signup-btn {
+  background-color: #E8E8E8;
+  color: #333;
+}
+
+.login-btn {
+  background-color: #802525;
+  color: #FFF;
+}
