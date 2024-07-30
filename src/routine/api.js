@@ -2,7 +2,7 @@ export const fetchRoutines = async () => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('http://localhost:5001/api/routines', {
+    const response = await fetch('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/routines', {
       headers: {
         'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
       },
@@ -22,7 +22,7 @@ export const createRoutine = async (routine) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('http://localhost:5001/api/routines/create', {
+    const response = await fetch('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/routines/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const updateRoutine = async (id, routine) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`http://localhost:5001/api/routines/${id}`, {
+    const response = await fetch(`http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/routines/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const deleteRoutine = async (id) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`http://localhost:5001/api/routines/${id}`, {
+    const response = await fetch(`http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/routines/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`, // Include the token in the Authorization header

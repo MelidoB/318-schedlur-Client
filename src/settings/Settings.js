@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Settings.css';
 import { getUserInfo, updateUserInfo } from './api';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 function Settings() {
   const [editField, setEditField] = useState(null);
@@ -89,7 +89,7 @@ function Settings() {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        await axios.delete('http://localhost:5001/api/settings/user', {
+        await axios.delete('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/settings/user', {
           headers: { Authorization: `Bearer ${token}` }
         });
         localStorage.removeItem('token');

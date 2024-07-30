@@ -1,7 +1,7 @@
 // client/src/components/SignUp.js
 
-import React, { useState } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
@@ -23,7 +23,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:5001/api/auth/signup', formData);
+      const res = await axios.post('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/auth/signup', formData);
       console.log(res.data);
 
       // Store token in localStorage

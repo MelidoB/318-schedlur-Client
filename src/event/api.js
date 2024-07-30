@@ -2,7 +2,7 @@ export const fetchEvents = async () => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('http://localhost:5001/api/events', {
+    const response = await fetch('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/events', {
       headers: {
         'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
       },
@@ -22,7 +22,7 @@ export const createEvent = async (event) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('http://localhost:5001/api/events/create', {
+    const response = await fetch('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/events/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const updateEvent = async (id, event) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`http://localhost:5001/api/events/${id}`, {
+    const response = await fetch(`http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/events/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const deleteEvent = async (id) => {
   try {
     const token = localStorage.getItem('token'); // Or however you store the token
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`http://localhost:5001/api/events/${id}`, {
+    const response = await fetch(`http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/events/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
