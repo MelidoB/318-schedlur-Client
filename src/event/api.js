@@ -1,85 +1,76 @@
-export const fetchEvents = async () => {
+// utils/api.js
+
+const API_URL = 'https://318-schedlur-server.vercel.app/api'; // Use full URL
+
+const getToken = () => localStorage.getItem('token'); // Helper function to get the token
+
+const fetchData = async (url, options = {}) => {
   try {
-    const token = localStorage.getItem('token'); // Or however you store the token
+    const token = getToken();
     console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('https://318-schedlur-server.vercel.app/api/events', {
+
+    const response = await fetch(url, {
+      ...options,
       headers: {
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
+        ...options.headers,
+        'Authorization': `Bearer ${token}`,
       },
     });
+
     if (!response.ok) {
-      throw new Error('Failed to fetch events');
+      throw new Error(`Failed to fetch data from ${url}`);
     }
-    const events = await response.json();
-    return events;
+
+    return await response.json();
   } catch (error) {
-    console.error('Error fetching events:', error);
+    console.error(`Error fetching data from ${url}:`, error);
+    throw error;
+  }
+};
+
+export const fetchEvents = async () => {
+  try {
+    return await fetchData(`${API_URL}/events`);
+  } catch (error) {
     return [];
   }
 };
 
 export const createEvent = async (event) => {
   try {
-    const token = localStorage.getItem('token'); // Or however you store the token
-    console.log('Fetched Token:', token); // Debug log
-    const response = await fetch('https://318-schedlur-server.vercel.app/api/events/create', {
+    return await fetchData(`${API_URL}/events/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
       },
       body: JSON.stringify(event),
     });
-    if (!response.ok) {
-      throw new Error('Failed to create event');
-    }
-    const newEvent = await response.json();
-    return newEvent;
   } catch (error) {
-    console.error('Error creating event:', error);
     return null;
   }
 };
 
 export const updateEvent = async (id, event) => {
   try {
-    const token = localStorage.getItem('token'); // Or however you store the token
-    console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`https://318-schedlur-server.vercel.app/api/events/${id}`, {
+    return await fetchData(`${API_URL}/events/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
       },
       body: JSON.stringify(event),
     });
-    if (!response.ok) {
-      throw new Error('Failed to update event');
-    }
-    const updatedEvent = await response.json();
-    return updatedEvent;
   } catch (error) {
-    console.error('Error updating event:', error);
     return null;
   }
 };
 
 export const deleteEvent = async (id) => {
   try {
-    const token = localStorage.getItem('token'); // Or however you store the token
-    console.log('Fetched Token:', token); // Debug log
-    const response = await fetch(`https://318-schedlur-server.vercel.app/api/events/${id}`, {
+    await fetchData(`${API_URL}/events/${id}`, {
       method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
-      },
     });
-    if (!response.ok) {
-      throw new Error('Failed to delete event');
-    }
     return { message: 'Event deleted successfully' };
   } catch (error) {
-    console.error('Error deleting event:', error);
     return null;
   }
 };
