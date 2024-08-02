@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/settings';
+const API_URL = 'https://318-schedlur-server.vercel.app//api/settings';
 
 export const getUserInfo = async (token) => {
   try {

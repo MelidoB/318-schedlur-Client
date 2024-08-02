@@ -89,7 +89,7 @@ function Settings() {
     try {
       const token = localStorage.getItem('token');
       if (token) {
-        await axios.delete('http://318-schedlur-server-5b504ge68-melido-bellos-projects.vercel.app/api/settings/user', {
+        await axios.delete('https://318-schedlur-server.vercel.app//api/settings/user', {
           headers: { Authorization: `Bearer ${token}` }
         });
         localStorage.removeItem('token');
