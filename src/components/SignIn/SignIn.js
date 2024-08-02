@@ -22,7 +22,7 @@ const SignIn = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post('https://318-schedlur-server.vercel.app//api/auth/signin', formData);
+      const res = await axios.post('https://318-schedlur-server.vercel.app/api/auth/signin', formData);
       console.log('Response:', res.data);
 
       // Store token in localStorage
