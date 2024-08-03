@@ -1,69 +1,109 @@
 .top-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f4c2c2;
-    padding: 10px 50px; /* Adjusted padding to reduce navbar height */
-    font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f4c2c2;
+  padding: 10px 50px;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding is included in the total width */
+  margin: 0;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-section h1 {
+  font-size: 24px;
+}
+
+.links-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.links-section a {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.links-section a:last-child {
+  margin-right: 0;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+}
+
+.links-section a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: black;
+  transition: width .3s;
+}
+
+.links-section a:hover::after {
+  width: 100%;
+}
+
+.links-section a.active::after {
+  width: 100%;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .top-navbar {
+    padding: 10px 20px;
+    overflow-x: hidden;
   }
-  
-  .logo-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 50px; /* Increased logo size */
-    height: 50px;
-    margin-right: 10px;
-  }
-  
-  .logo-section h1 {
-    font-size: 24px; /* Increased font size for the brand name */
-  }
-  
-  .links-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
+
   .links-section a {
-    text-decoration: none;
-    color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 20px; /* Added margin for spacing */
-    position: relative;
-    font-weight: bold; /* Bold text */
-    font-size: 18px; /* Larger text size */
+    margin: 0 5px;
+    font-size: 16px;
   }
-  
-  .links-section a:last-child {
-    margin-right: 0;
-  }
-  
+
   .icon {
-    width: 30px; /* Increased icon size */
-    height: 30px;
-    margin-bottom: 5px;
+    width: 25px;
+    height: 25px;
   }
-  
-  .links-section a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: black;
-    transition: width .3s;
+}
+
+@media (max-width: 480px) {
+  .top-navbar {
+    padding: 10px;
+    overflow-x: hidden;
   }
-  
-  .links-section a:hover::after {
-    width: 100%;
+
+  .links-section a {
+    margin: 0 2px;
+    font-size: 14px;
   }
-  
-  .links-section a.active::after {
-    width: 100%;
+
+  .icon {
+    width: 20px;
+    height: 20px;
   }
-  
+}
